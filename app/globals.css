@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+/* ─── THEME TOKENS ─────────────────────────────────────────── */
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-orbitron);
+
+  /* Brand colors */
+  --color-background:   #09090b;
+  --color-surface:      #18181b;
+  --color-surface-2:    #27272a;
+  --color-border:       #3f3f46;
+  --color-border-subtle:#27272a;
+
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+
+  --color-text-primary:   #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted:     #71717a;
+
+  /* Glow */
+  --glow-amber: 0 0 40px rgba(245, 158, 11, 0.15);
+  --glow-amber-strong: 0 0 60px rgba(245, 158, 11, 0.3);
+}
+
+/* ─── BASE ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #09090b;
+  color: #fafafa;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── CUSTOM SCROLLBAR ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fbbf24;
+}
+
+/* ─── SELECTION ─────────────────────────────────────────────── */
+::selection {
+  background: rgba(245, 158, 11, 0.3);
+  color: #fafafa;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─────────────────────────────────── */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ─── GLASS CARD ────────────────────────────────────────────── */
+.glass {
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.08);
+}
+
+.glass-strong {
+  background: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+/* ─── AMBER GLOW UTILITIES ──────────────────────────────────── */
+.glow-amber {
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.12),
+              0 0 60px rgba(245, 158, 11, 0.06);
+}
+.glow-amber-strong {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.25),
+              0 0 80px rgba(245, 158, 11, 0.12);
+}
+.text-glow-amber {
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+/* ─── GRADIENT UTILITIES ────────────────────────────────────── */
+.gradient-amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+.gradient-amber-text {
+  background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-surface {
+  background: linear-gradient(180deg, #18181b 0%, #09090b 100%);
+}
+.gradient-radial-amber {
+  background: radial-gradient(ellipse at center, rgba(245,158,11,0.08) 0%, transparent 70%);
+}
+
+/* ─── BORDER UTILITIES ──────────────────────────────────────── */
+.border-amber-glow {
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.1) inset;
+}
+
+/* ─── KEYFRAME ANIMATIONS ───────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(245,158,11,0.15); }
+  50%       { box-shadow: 0 0 40px rgba(245,158,11,0.35), 0 0 80px rgba(245,158,11,0.15); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes spotlight-move {
+  0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50%  { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+}
+
+/* ─── ANIMATION CLASSES ─────────────────────────────────────── */
+.animate-float       { animation: float 4s ease-in-out infinite; }
+.animate-float-slow  { animation: float-slow 6s ease-in-out infinite; }
+.animate-glow-pulse  { animation: glow-pulse 3s ease-in-out infinite; }
+.animate-spin-slow   { animation: spin-slow 12s linear infinite; }
+.animate-fade-in-up  { animation: fade-in-up 0.6s ease-out forwards; }
+.animate-fade-in     { animation: fade-in 0.4s ease-out forwards; }
+.animate-slide-left  { animation: slide-in-left 0.5s ease-out forwards; }
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #f59e0b 0%,
+    #fcd34d 25%,
+    #fbbf24 50%,
+    #fcd34d 75%,
+    #f59e0b 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── CUSTOM CURSOR ─────────────────────────────────────────── */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #f59e0b;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(245, 158, 11, 0.6);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.12s ease;
+}
+
+.cursor-ring.hovering {
+  width: 56px;
+  height: 56px;
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.9);
+}
+
+/* ─── SPOTLIGHT CURSOR GLOW ─────────────────────────────────── */
+.spotlight {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+/* ─── TILT CARD ─────────────────────────────────────────────── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease;
+}
+.tilt-card-inner {
+  transform: translateZ(20px);
+}
+
+/* ─── MAGNETIC BUTTON ───────────────────────────────────────── */
+.magnetic-btn {
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ─── GRID PATTERN ──────────────────────────────────────────── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── RTL SUPPORT ───────────────────────────────────────────── */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .timeline-line {
+  right: auto;
+  left: 1.25rem;
+}
+
+/* ─── SCROLLBAR HIDE ────────────────────────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
