@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Zap } from 'lucide-react';
+import Link from 'next/link';
 import { MagneticButton } from '@/components/effects/MagneticButton';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { cn } from '@/lib/utils/cn';
@@ -102,12 +103,12 @@ export function Navbar() {
 
           {/* CTA */}
           <MagneticButton>
-            <a
+            <Link
               href={`/${locale}/auth`}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-sm font-semibold transition-all duration-200 shadow-lg shadow-amber-500/20"
             >
               {t('demo')}
-            </a>
+            </Link>
           </MagneticButton>
 
           {/* Mobile menu toggle */}
