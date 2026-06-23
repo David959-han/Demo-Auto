@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import '../globals.css';
 
 const inter = Inter({
@@ -56,9 +57,11 @@ export default async function LocaleLayout({
       dir={isRTL ? 'rtl' : 'ltr'}
       className={`${inter.variable} ${orbitron.variable} dark`}
     >
-      <body className="min-h-screen bg-[#09090b] text-zinc-50 antialiased overflow-x-hidden">
+      <body className="min-h-screen antialiased overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

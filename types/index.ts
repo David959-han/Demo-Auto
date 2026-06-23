@@ -102,6 +102,15 @@ export interface Reminder {
   ownerPhone: string;
 }
 
+export interface MonthlyAccounting {
+  month: string;        // '2026-01'
+  income: number;
+  parts: number;
+  electricity: number;
+  utilities: number;
+  profit: number;
+}
+
 export interface DashboardStats {
   todayOrders: number;
   totalCustomers: number;

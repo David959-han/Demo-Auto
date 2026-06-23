@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, X } from 'lucide-react';
 import {
   LayoutDashboard, Users, ClipboardList,
-  BarChart3, Bell, LogOut, ChevronRight,
+  BarChart3, Bell, LogOut, ChevronRight, History, BookOpen,
 } from 'lucide-react';
 import { WrenchGearIcon, CarWashIcon, BarcodeIcon } from '@/components/icons';
 import { useAuthStore } from '@/lib/stores/authStore';
@@ -34,12 +34,6 @@ const navItems: NavItem[] = [
     roles: ['boss', 'mechanic'],
   },
   {
-    key: 'wash',
-    href: '/dashboard/wash',
-    icon: <CarWashIcon size={16} />,
-    roles: ['boss', 'mechanic', 'washer'],
-  },
-  {
     key: 'customers',
     href: '/dashboard/customers',
     icon: <Users className="w-4 h-4" />,
@@ -49,13 +43,31 @@ const navItems: NavItem[] = [
     key: 'inventory',
     href: '/dashboard/inventory',
     icon: <BarcodeIcon size={16} />,
-    roles: ['boss'],
+    roles: ['boss', 'mechanic'],
+  },
+  {
+    key: 'wash',
+    href: '/dashboard/wash',
+    icon: <CarWashIcon size={16} />,
+    roles: ['boss', 'washer'],
+  },
+  {
+    key: 'history',
+    href: '/dashboard/history',
+    icon: <History className="w-4 h-4" />,
+    roles: ['boss', 'mechanic'],
   },
   {
     key: 'reminders',
     href: '/dashboard/reminders',
     icon: <Bell className="w-4 h-4" />,
     roles: ['boss', 'mechanic', 'washer'],
+  },
+  {
+    key: 'accounting',
+    href: '/dashboard/accounting',
+    icon: <BookOpen className="w-4 h-4" />,
+    roles: ['boss'],
   },
   {
     key: 'reports',
@@ -71,11 +83,7 @@ const roleColors: Record<Role, { badge: string; text: string }> = {
   washer: { badge: 'bg-cyan-500/20 text-cyan-400', text: 'text-cyan-400' },
 };
 
-const roleLabels: Record<Role, string> = {
-  boss: 'Boshliq',
-  mechanic: 'Usta',
-  washer: 'Moykachi',
-};
+// role labels come from translations
 
 interface SidebarProps {
   open: boolean;
@@ -150,7 +158,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
             <div className="min-w-0">
               <div className="text-sm font-semibold text-white truncate">{name}</div>
               <span className={cn('text-xs font-medium px-1.5 py-0.5 rounded-md', colors.badge)}>
-                {roleLabels[role]}
+                {t(`role_${role}` as Parameters<typeof t>[0])}
               </span>
             </div>
           </div>

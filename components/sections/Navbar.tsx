@@ -6,6 +6,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Zap } from 'lucide-react';
 import { MagneticButton } from '@/components/effects/MagneticButton';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { cn } from '@/lib/utils/cn';
 
 const localeNames: Record<string, string> = { uz: "O'Z", en: 'EN', ar: 'AR' };
@@ -96,6 +97,8 @@ export function Navbar() {
               </button>
             ))}
           </div>
+
+          <ThemeToggle />
 
           {/* CTA */}
           <MagneticButton>

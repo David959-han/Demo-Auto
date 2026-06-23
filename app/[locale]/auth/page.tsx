@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { useRouter, useParams, usePathname } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Zap, ChevronRight, Info } from 'lucide-react';
 import { useAuthStore } from '@/lib/stores/authStore';
 import { SpotlightCursor } from '@/components/effects/SpotlightCursor';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { MagneticButton } from '@/components/effects/MagneticButton';
 import { WrenchGearIcon, CarWashIcon, SpeedometerIcon } from '@/components/icons';
 import type { Role } from '@/types';
@@ -50,14 +51,25 @@ const roles: {
   },
 ];
 
+const localeNames: Record<string, string> = { uz: "O'Z", en: 'EN', ar: 'AR' };
+const locales = ['en', 'uz', 'ar'];
+
 export default function AuthPage() {
   const t = useTranslations('auth');
   const router = useRouter();
   const params = useParams();
-  const locale = (params?.locale as string) ?? 'uz';
+  const pathname = usePathname();
+  const currentLocale = useLocale();
+  const locale = (params?.locale as string) ?? 'en';
   const login = useAuthStore((s) => s.login);
   const [selected, setSelected] = useState<Role | null>(null);
   const [loading, setLoading] = useState(false);
+
+  const switchLocale = (next: string) => {
+    const segments = pathname.split('/');
+    segments[1] = next;
+    router.push(segments.join('/'));
+  };
 
   const handleEnter = () => {
     if (!selected) return;
@@ -77,9 +89,47 @@ export default function AuthPage() {
 
         {/* Background */}
         <div className="absolute inset-0 grid-pattern opacity-40" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-amber-500/4 blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-150 h-150 rounded-full bg-amber-500/4 blur-3xl" />
 
         <div className="relative z-10 w-full max-w-lg mx-auto px-4 py-12">
+
+          {/* Back to home — top left */}
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            onClick={() => router.push(`/${locale}`)}
+            className="absolute top-4 inset-s-4 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800/60 border border-zinc-700/50 text-zinc-400 hover:text-white text-xs font-medium transition-colors"
+          >
+            <svg className="w-3.5 h-3.5 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            {currentLocale === 'ar' ? 'الرئيسية' : currentLocale === 'uz' ? 'Bosh sahifa' : 'Home'}
+          </motion.button>
+
+          {/* Theme + Locale — top right */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute top-4 inset-e-4 flex items-center gap-2"
+          >
+            <ThemeToggle />
+            <div className="flex items-center gap-0.5 p-1 rounded-lg bg-zinc-800/60 border border-zinc-700/50">
+            {locales.map((l) => (
+              <button
+                key={l}
+                onClick={() => switchLocale(l)}
+                className={cn(
+                  'px-2 py-1 rounded-md text-[11px] font-semibold transition-all duration-200',
+                  currentLocale === l
+                    ? 'bg-amber-500 text-black'
+                    : 'text-zinc-400 hover:text-white'
+                )}
+              >
+                {localeNames[l]}
+              </button>
+            ))}
+            </div>
+          </motion.div>
 
           {/* Logo */}
           <motion.div
@@ -117,7 +167,7 @@ export default function AuthPage() {
                     role.bg,
                     role.border,
                     role.glow,
-                    isSelected && 'ring-2 ring-offset-2 ring-offset-[#09090b]',
+                    isSelected && 'ring-2 ring-offset-2 ring-offset-background',
                     isSelected && role.key === 'boss' && 'ring-amber-500',
                     isSelected && role.key === 'mechanic' && 'ring-blue-500',
                     isSelected && role.key === 'washer' && 'ring-cyan-500',

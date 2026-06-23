@@ -1,6 +1,6 @@
 import type {
   Customer, Car, WorkOrder, Mechanic,
-  Part, WashBay, Reminder, DashboardStats,
+  Part, WashBay, Reminder, DashboardStats, MonthlyAccounting,
 } from '@/types';
 
 export const mockStats: DashboardStats = {
@@ -53,8 +53,13 @@ export const mockOrders: WorkOrder[] = [
   { id: 6,  orderNumber: 'WO-2024-006', customerId: 6, carId: 7, status: 'done',      mechanicIds: [5], startDate: '2026-06-18', endDate: '2026-06-19', totalCost: 920_000, description: 'Elektr tizimi' },
   { id: 7,  orderNumber: 'WO-2024-007', customerId: 7, carId: 8, status: 'cancelled', mechanicIds: [6], startDate: '2026-06-17', totalCost: 0, description: 'Mijoz bekor qildi' },
   { id: 8,  orderNumber: 'WO-2024-008', customerId: 8, carId: 9, status: 'active',    mechanicIds: [3], startDate: '2026-06-22', totalCost: 540_000, description: 'Konditsioner ta\'miri' },
-  { id: 9,  orderNumber: 'WO-2024-009', customerId: 1, carId: 1, status: 'done',      mechanicIds: [1], startDate: '2026-06-15', endDate: '2026-06-16', totalCost: 1_100_000, description: 'Transmissiya yog\'i' },
-  { id: 10, orderNumber: 'WO-2024-010', customerId: 2, carId: 3, status: 'pending',   mechanicIds: [2], startDate: '2026-06-22', totalCost: 300_000, description: 'Xavfsizlik tekshiruvi' },
+  { id: 9,  orderNumber: 'WO-2024-009', customerId: 1, carId: 1, status: 'done',    mechanicIds: [1], startDate: '2026-06-15', endDate: '2026-06-16', totalCost: 1_100_000, description: 'Transmissiya yog\'i' },
+  { id: 10, orderNumber: 'WO-2024-010', customerId: 2, carId: 3, status: 'pending', mechanicIds: [2], startDate: '2026-06-22', totalCost: 300_000, description: 'Xavfsizlik tekshiruvi' },
+  { id: 11, orderNumber: 'WO-2024-011', customerId: 4, carId: 5, status: 'done',    mechanicIds: [4], startDate: '2026-06-07', endDate: '2026-06-08', totalCost: 750_000, description: 'Karbyurator tozalash' },
+  { id: 12, orderNumber: 'WO-2024-012', customerId: 5, carId: 6, status: 'done',    mechanicIds: [2], startDate: '2026-06-04', endDate: '2026-06-05', totalCost: 480_000, description: 'Akkumulyator almashtirish' },
+  { id: 13, orderNumber: 'WO-2024-013', customerId: 7, carId: 8, status: 'done',    mechanicIds: [3], startDate: '2026-06-10', endDate: '2026-06-11', totalCost: 1_350_000, description: 'Suv nasosi ta\'miri' },
+  { id: 14, orderNumber: 'WO-2024-014', customerId: 3, carId: 4, status: 'done',    mechanicIds: [5], startDate: '2026-05-28', endDate: '2026-05-30', totalCost: 2_100_000, description: 'Mufta almashtirish' },
+  { id: 15, orderNumber: 'WO-2024-015', customerId: 6, carId: 7, status: 'done',    mechanicIds: [1], startDate: '2026-05-24', endDate: '2026-05-25', totalCost: 600_000, description: 'To\'xtatgich ta\'miri' },
 ];
 
 export const mockParts: Part[] = [
@@ -94,4 +99,13 @@ export const mockRevenueChart = [
   { month: 'Apr', revenue: 35_200_000, orders: 118 },
   { month: 'May', revenue: 38_900_000, orders: 127 },
   { month: 'Iyn', revenue: 42_800_000, orders: 141 },
+];
+
+export const mockAccounting: MonthlyAccounting[] = [
+  { month: '2026-01', income: 28_400_000, parts: 8_200_000, electricity: 1_350_000, utilities: 920_000,  profit: 17_930_000 },
+  { month: '2026-02', income: 31_800_000, parts: 9_100_000, electricity: 1_280_000, utilities: 880_000,  profit: 20_540_000 },
+  { month: '2026-03', income: 38_500_000, parts: 10_800_000, electricity: 950_000,  utilities: 820_000,  profit: 25_930_000 },
+  { month: '2026-04', income: 42_100_000, parts: 12_300_000, electricity: 880_000,  utilities: 780_000,  profit: 28_140_000 },
+  { month: '2026-05', income: 39_600_000, parts: 11_200_000, electricity: 1_050_000, utilities: 850_000, profit: 26_500_000 },
+  { month: '2026-06', income: 43_200_000, parts: 11_800_000, electricity: 1_420_000, utilities: 950_000, profit: 29_030_000 },
 ];

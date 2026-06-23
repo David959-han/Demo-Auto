@@ -42,6 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* ─── CUSTOM SCROLLBAR ──────────────────────────────────────── */
@@ -299,3 +300,81 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT MODE  —  GitHub-style: ko'z uchun qulay, yuqori kontrast
+   Fon: #f6f8fa  |  Karta: #ffffff  |  Matn: #1f2328
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light body,
+html[data-theme="light"] body {
+  background-color: #f6f8fa !important;
+  color: #1f2328 !important;
+}
+
+/* ── qisqartiruv ─────────────────────────────────────────────── */
+/* ham html.light ham data-theme="light" ishlaydi               */
+:is(html.light, html[data-theme="light"]) .bg-background     { background-color: #f6f8fa !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-950        { background-color: #eaeef2 !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-900        { background-color: #ffffff !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-800        { background-color: #f6f8fa !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-700        { background-color: #eaeef2 !important; }
+
+:is(html.light, html[data-theme="light"]) .bg-zinc-900\/60    { background-color: rgba(255,255,255,0.97) !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-900\/80    { background-color: rgba(255,255,255,0.99) !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-900\/40    { background-color: rgba(255,255,255,0.88) !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-800\/80    { background-color: rgba(246,248,250,0.96) !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-800\/60    { background-color: rgba(246,248,250,0.92) !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-800\/50    { background-color: rgba(246,248,250,0.88) !important; }
+:is(html.light, html[data-theme="light"]) .bg-zinc-800\/30    { background-color: rgba(234,238,242,0.72) !important; }
+
+/* ── Matn ─────────────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) .text-white         { color: #1f2328 !important; }
+:is(html.light, html[data-theme="light"]) .text-zinc-50       { color: #1f2328 !important; }
+:is(html.light, html[data-theme="light"]) .text-zinc-100      { color: #1f2328 !important; }
+:is(html.light, html[data-theme="light"]) .text-zinc-200      { color: #24292f !important; }
+:is(html.light, html[data-theme="light"]) .text-zinc-300      { color: #32383f !important; }
+:is(html.light, html[data-theme="light"]) .text-zinc-400      { color: #424a53 !important; }
+:is(html.light, html[data-theme="light"]) .text-zinc-500      { color: #57606a !important; }
+:is(html.light, html[data-theme="light"]) .text-zinc-600      { color: #6e7781 !important; }
+
+/* ── Chegara ──────────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) .border-zinc-900    { border-color: #d0d7de !important; }
+:is(html.light, html[data-theme="light"]) .border-zinc-800    { border-color: #d8dee4 !important; }
+:is(html.light, html[data-theme="light"]) .border-zinc-700    { border-color: #d0d7de !important; }
+:is(html.light, html[data-theme="light"]) .border-zinc-800\/50 { border-color: rgba(208,215,222,0.6) !important; }
+:is(html.light, html[data-theme="light"]) .border-zinc-700\/50 { border-color: rgba(208,215,222,0.5) !important; }
+
+/* ── Hover ────────────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) .hover\:bg-zinc-800:hover     { background-color: #eaeef2 !important; }
+:is(html.light, html[data-theme="light"]) .hover\:bg-zinc-700:hover     { background-color: #e0e5ea !important; }
+:is(html.light, html[data-theme="light"]) .hover\:bg-zinc-800\/30:hover { background-color: rgba(220,226,232,0.6) !important; }
+:is(html.light, html[data-theme="light"]) .hover\:text-white:hover      { color: #1f2328 !important; }
+
+/* ── Input ────────────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) input {
+  background-color: #ffffff !important;
+  color: #1f2328 !important;
+  border-color: #d0d7de !important;
+}
+:is(html.light, html[data-theme="light"]) input:focus { border-color: #f59e0b !important; }
+:is(html.light, html[data-theme="light"]) input::placeholder { color: #8c959f !important; }
+
+/* ── Header ───────────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) header { background-color: rgba(246,248,250,0.95) !important; }
+
+/* ── Glass ────────────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) .glass {
+  background: rgba(255,255,255,0.88) !important;
+  border-color: rgba(208,215,222,0.9) !important;
+}
+
+/* ── Grid pattern ─────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) .grid-pattern { opacity: 0.05 !important; }
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) ::-webkit-scrollbar-track { background: #eaeef2; }
+
+/* ── Table tfoot ──────────────────────────────────────────────── */
+:is(html.light, html[data-theme="light"]) tfoot tr { background-color: #f6f8fa !important; }
+
