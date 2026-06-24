@@ -6,10 +6,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, Plus, RefreshCw } from 'lucide-react';
 import { generateRandomOrders, type RandomOrder } from '@/lib/utils/randomDemo';
 import { cn } from '@/lib/utils/cn';
+import { trService } from '@/lib/utils/translations';
+import { useLocale } from 'next-intl';
 import type { OrderStatus } from '@/types';
 
 export default function OrdersPage() {
   const t = useTranslations('dashboard');
+  const locale = useLocale();
   const [orders, setOrders] = useState<RandomOrder[]>(() => generateRandomOrders(12));
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<OrderStatus | 'all'>('all');
@@ -136,7 +139,7 @@ export default function OrdersPage() {
                       </td>
                       <td className="px-4 py-3 text-zinc-300 whitespace-nowrap">{order.customerName}</td>
                       <td className="px-4 py-3 text-zinc-400 whitespace-nowrap">{order.mechanicName}</td>
-                      <td className="px-4 py-3 text-zinc-400 max-w-44 truncate">{order.description}</td>
+                      <td className="px-4 py-3 text-zinc-400 max-w-44 truncate">{trService(order.description, locale)}</td>
                       <td className="px-4 py-3 font-mono text-amber-400 whitespace-nowrap">
                         {order.totalCost > 0 ? `${(order.totalCost / 1000).toFixed(0)}K` : '—'}
                       </td>

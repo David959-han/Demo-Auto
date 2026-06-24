@@ -11,6 +11,8 @@ import { AnimatedCounter } from '@/components/effects/AnimatedCounter';
 import { useAuthStore } from '@/lib/stores/authStore';
 import { mockStats, mockOrders, mockCustomers, mockCars, mockMechanics, mockRevenueChart } from '@/lib/mock/data';
 import { cn } from '@/lib/utils/cn';
+import { trService } from '@/lib/utils/translations';
+import { useLocale } from 'next-intl';
 import type { OrderStatus } from '@/types';
 
 function fmt(n: number) {
@@ -19,6 +21,7 @@ function fmt(n: number) {
 
 export default function OverviewPage() {
   const t = useTranslations('dashboard');
+  const locale = useLocale();
   const { name } = useAuthStore();
 
   const statusConfig: Record<OrderStatus, { label: string; cls: string }> = {
@@ -169,7 +172,7 @@ export default function OverviewPage() {
                       <div className="text-zinc-500">{car?.brand} {car?.model}</div>
                     </td>
                     <td className="px-4 py-3 text-zinc-300">{customer?.name}</td>
-                    <td className="px-4 py-3 text-zinc-400 max-w-40 truncate">{order.description}</td>
+                    <td className="px-4 py-3 text-zinc-400 max-w-40 truncate">{trService(order.description, locale)}</td>
                     <td className="px-4 py-3 font-mono text-amber-400">
                       {order.totalCost > 0 ? `${(order.totalCost / 1000).toFixed(0)}K` : '—'}
                     </td>

@@ -7,9 +7,12 @@ import { Search, Package, Plus, AlertTriangle, CheckCircle2, PackagePlus } from 
 import { mockParts } from '@/lib/mock/data';
 import { useAuthStore } from '@/lib/stores/authStore';
 import { cn } from '@/lib/utils/cn';
+import { trPartName, trCategory } from '@/lib/utils/translations';
+import { useLocale } from 'next-intl';
 
 export default function InventoryPage() {
   const t = useTranslations('dashboard');
+  const locale = useLocale();
   const { role } = useAuthStore();
   const isBoss = role === 'boss';
 
@@ -117,8 +120,8 @@ export default function InventoryPage() {
                 )}
               </div>
 
-              <h4 className="text-sm font-semibold text-white mb-0.5">{part.name}</h4>
-              <div className="text-xs text-zinc-500 mb-3">{part.category} · {part.supplier}</div>
+              <h4 className="text-sm font-semibold text-white mb-0.5">{trPartName(part.name, locale)}</h4>
+              <div className="text-xs text-zinc-500 mb-3">{trCategory(part.category, locale)} · {part.supplier}</div>
 
               <div className="flex items-end justify-between mb-2">
                 <span className="text-xs text-zinc-500">{t('col_qty')}</span>

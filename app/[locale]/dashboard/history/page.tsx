@@ -7,6 +7,8 @@ import { Search, Phone, ClipboardList, CheckCircle2, TrendingUp } from 'lucide-r
 import { mockOrders, mockCars, mockCustomers, mockMechanics } from '@/lib/mock/data';
 import { useAuthStore } from '@/lib/stores/authStore';
 import { cn } from '@/lib/utils/cn';
+import { trService, trSpecialty } from '@/lib/utils/translations';
+import { useLocale } from 'next-intl';
 
 type Period = '7d' | '21d' | '1m';
 
@@ -21,6 +23,7 @@ function withinDays(dateStr: string, days: number): boolean {
 
 export default function HistoryPage() {
   const t = useTranslations('dashboard');
+  const locale = useLocale();
   const { role } = useAuthStore();
   const isBoss = role === 'boss';
   const [search, setSearch] = useState('');
@@ -176,13 +179,13 @@ export default function HistoryPage() {
                   </td>
 
                   {/* Service */}
-                  <td className="px-4 py-3 text-zinc-300 max-w-44 truncate">{order.description}</td>
+                  <td className="px-4 py-3 text-zinc-300 max-w-44 truncate">{trService(order.description, locale)}</td>
 
                   {/* Mechanic */}
                   <td className="px-4 py-3 whitespace-nowrap">
                     <span className="text-zinc-300">{mechanic?.name.split(' ')[0] ?? '—'}</span>
                     {mechanic && (
-                      <div className="text-zinc-600 text-[10px]">{mechanic.specialty}</div>
+                      <div className="text-zinc-600 text-[10px]">{trSpecialty(mechanic.specialty, locale)}</div>
                     )}
                   </td>
 
@@ -217,7 +220,7 @@ export default function HistoryPage() {
           <div className="px-4 py-3 border-t border-zinc-800 flex items-center justify-between bg-zinc-900/40">
             <span className="text-xs text-zinc-500">{rows.length} {t('history_count')}</span>
             <span className="text-sm font-bold text-amber-400">
-              {t('history_total')}: {(totalRevenue / 1_000_000).toFixed(2)} M so'm
+              {t('history_total')}: {(totalRevenue / 1_000_000).toFixed(2)} M {locale === 'uz' ? "so'm" : locale === 'ar' ? 'UZS' : 'UZS'}
             </span>
           </div>
         )}
