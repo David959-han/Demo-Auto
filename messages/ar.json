@@ -269,7 +269,7 @@
     "acc_income": "الإيراد",
     "acc_parts": "تكلفة قطع الغيار",
     "acc_electricity": "الكهرباء",
-    "acc_utilities": "الخدمات / ZhK",
+    "acc_utilities": "المرافق",
     "acc_profit": "صافي الربح",
     "acc_expenses": "إجمالي المصاريف",
     "acc_ytd_income": "إيراد العام",
@@ -285,7 +285,13 @@
     "received": "تم الاستلام",
     "receive_placeholder": "الكمية؟",
     "receive_confirm": "تأكيد",
-    "receive_cancel": "إلغاء"
+    "receive_cancel": "إلغاء",
+    "mechanics_subtitle": "نظرة عامة على الأداء وعبء العمل",
+    "col_specialty": "التخصص",
+    "col_kpi": "مؤشر الأداء",
+    "col_completed": "الوظائف المنجزة",
+    "col_rev": "الإيرادات (AED)",
+    "mech_orders": "طلبات"
   },
   "common": {
     "save": "حفظ",

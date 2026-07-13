@@ -269,7 +269,7 @@
     "acc_income": "Daromad",
     "acc_parts": "Zapchast xarajati",
     "acc_electricity": "Elektr energiya",
-    "acc_utilities": "Kommunal / ZhK",
+    "acc_utilities": "Kommunal xizmatlar",
     "acc_profit": "Sof foyda",
     "acc_expenses": "Jami xarajat",
     "acc_ytd_income": "Yillik daromad",
@@ -285,7 +285,13 @@
     "received": "Olib kelindi",
     "receive_placeholder": "Nechtasi?",
     "receive_confirm": "Tasdiqlash",
-    "receive_cancel": "Bekor"
+    "receive_cancel": "Bekor",
+    "mechanics_subtitle": "ishlash ko'rsatkichlari va ish yuklamasi",
+    "col_specialty": "Mutaxassislik",
+    "col_kpi": "KPI",
+    "col_completed": "Bajarilgan ishlar",
+    "col_rev": "Daromad (AED)",
+    "mech_orders": "buyurtma"
   },
   "common": {
     "save": "Saqlash",

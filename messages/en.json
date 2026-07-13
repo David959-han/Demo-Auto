@@ -269,7 +269,7 @@
     "acc_income": "Revenue",
     "acc_parts": "Parts purchased",
     "acc_electricity": "Electricity",
-    "acc_utilities": "Utilities / ZhK",
+    "acc_utilities": "Utilities",
     "acc_profit": "Net profit",
     "acc_expenses": "Total expenses",
     "acc_ytd_income": "YTD Revenue",
@@ -285,7 +285,13 @@
     "received": "Received",
     "receive_placeholder": "How many?",
     "receive_confirm": "Confirm",
-    "receive_cancel": "Cancel"
+    "receive_cancel": "Cancel",
+    "mechanics_subtitle": "performance & workload overview",
+    "col_specialty": "Specialty",
+    "col_kpi": "KPI",
+    "col_completed": "Completed jobs",
+    "col_rev": "Revenue (AED)",
+    "mech_orders": "orders"
   },
   "common": {
     "save": "Save",

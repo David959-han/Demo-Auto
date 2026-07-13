@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, X } from 'lucide-react';
 import {
   LayoutDashboard, Users, ClipboardList,
-  BarChart3, Bell, LogOut, ChevronRight, History, BookOpen,
+  BarChart3, Bell, LogOut, ChevronRight, History, BookOpen, UserCog,
 } from 'lucide-react';
 import { WrenchGearIcon, CarWashIcon, BarcodeIcon } from '@/components/icons';
 import { useSession, signOut } from 'next-auth/react';
@@ -32,6 +32,12 @@ const navItems: NavItem[] = [
     href: '/dashboard/orders',
     icon: <WrenchGearIcon size={16} />,
     roles: ['boss', 'mechanic'],
+  },
+  {
+    key: 'mechanics',
+    href: '/dashboard/mechanics',
+    icon: <UserCog className="w-4 h-4" />,
+    roles: ['boss'],
   },
   {
     key: 'customers',

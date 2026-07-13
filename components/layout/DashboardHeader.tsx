@@ -28,6 +28,7 @@ const pageKeyMap: Record<string, string> = {
   '/dashboard/accounting':  'accounting',
   '/dashboard/reminders':  'reminders',
   '/dashboard/reports':    'reports',
+  '/dashboard/mechanics':  'mechanics',
 };
 
 interface DashboardHeaderProps {
