@@ -33,8 +33,8 @@
   "timeline": {
     "title": "Vehicle History",
     "subtitle": "Complete service history for every vehicle — in one place",
-    "car": "Chevrolet Cobalt",
-    "plate": "01 A 777 AA",
+    "car": "Toyota Land Cruiser",
+    "plate": "A 12345 B",
     "owner": "Owner: Ahmed Al-Mansouri",
     "event1_date": "March 12, 2025",
     "event1_title": "Engine oil replaced",

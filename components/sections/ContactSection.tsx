@@ -52,7 +52,7 @@ export function ContactSection() {
 
             {/* Email */}
             <motion.a
-              href="mailto:admin@flowcraft.uz?subject=Yantar Auto OS Demo"
+              href="mailto:info@yantar-auto.ae?subject=Yantar Auto OS Demo"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-3 px-7 py-3.5 rounded-xl border border-zinc-700 hover:border-amber-500/50 bg-zinc-800/60 hover:bg-zinc-800 text-zinc-200 font-bold text-sm transition-all w-full sm:w-auto justify-center"

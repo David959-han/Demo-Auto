@@ -99,7 +99,7 @@ export function DashboardHeader({ onMenuOpen }: DashboardHeaderProps) {
         <ThemeToggle />
 
         {/* Locale switcher */}
-        <div className="hidden sm:flex items-center gap-0.5 p-1 rounded-lg bg-zinc-800/60 border border-zinc-700/50">
+        <div className="flex items-center gap-0.5 p-1 rounded-lg bg-zinc-800/60 border border-zinc-700/50">
           {locales.map((l) => (
             <button
               key={l}

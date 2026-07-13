@@ -1,30 +1,44 @@
 import { useTranslations } from 'next-intl';
 import { Zap } from 'lucide-react';
 
+const LINK_HREFS: Record<string, string> = {
+  features:  '#features',
+  pricing:   '#pricing',
+  demo:      '#contact',
+  about:     '#contact',
+  blog:      '#contact',
+  careers:   '#contact',
+  docs:      '#faq',
+  contact:   '#contact',
+  status:    '#contact',
+  privacy:   '#contact',
+  terms:     '#contact',
+};
+
 export function FooterSection() {
   const t = useTranslations('footer');
 
   const links = [
     {
       title: t('product'),
-      items: [t('features'), t('pricing'), t('demo')],
+      keys: ['features', 'pricing', 'demo'],
     },
     {
       title: t('company'),
-      items: [t('about'), t('blog'), t('careers')],
+      keys: ['about', 'blog', 'careers'],
     },
     {
       title: t('support'),
-      items: [t('docs'), t('contact'), t('status')],
+      keys: ['docs', 'contact', 'status'],
     },
     {
       title: t('legal'),
-      items: [t('privacy'), t('terms')],
+      keys: ['privacy', 'terms'],
     },
   ];
 
   return (
-    <footer id="contact" className="border-t border-zinc-800 bg-zinc-900/40">
+    <footer className="border-t border-zinc-800 bg-zinc-900/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
 
@@ -53,13 +67,13 @@ export function FooterSection() {
                 {group.title}
               </h4>
               <ul className="space-y-2.5">
-                {group.items.map((item) => (
-                  <li key={item}>
+                {group.keys.map((key) => (
+                  <li key={key}>
                     <a
-                      href="#"
+                      href={LINK_HREFS[key]}
                       className="text-sm text-zinc-500 hover:text-amber-400 transition-colors"
                     >
-                      {item}
+                      {t(key as Parameters<typeof t>[0])}
                     </a>
                   </li>
                 ))}
@@ -71,11 +85,9 @@ export function FooterSection() {
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-zinc-800">
           <p className="text-xs text-zinc-600">{t('copyright')}</p>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-xs text-zinc-500">Barcha tizimlar ishlayapti</span>
-            </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-xs text-zinc-500">{t('status')}</span>
           </div>
         </div>
       </div>
