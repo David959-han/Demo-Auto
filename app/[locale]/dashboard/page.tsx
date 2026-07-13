@@ -16,7 +16,9 @@ import { useLocale } from 'next-intl';
 import type { OrderStatus } from '@/types';
 
 function fmt(n: number) {
-  return (n / 1_000_000).toFixed(1) + 'M';
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
+  if (n >= 1_000)     return (n / 1_000).toFixed(0) + 'K';
+  return String(n);
 }
 
 export default function OverviewPage() {
@@ -35,7 +37,7 @@ export default function OverviewPage() {
   const kpiCards = [
     { label: t('kpi_today'),     value: mockStats.todayOrders,                          growth: mockStats.ordersGrowth, icon: <ClipboardList className="w-5 h-5" />, iconBg: 'bg-blue-500/10 text-blue-400',   suffix: '' },
     { label: t('kpi_customers'), value: mockStats.totalCustomers,                       growth: 8,                      icon: <Users className="w-5 h-5" />,        iconBg: 'bg-purple-500/10 text-purple-400', suffix: '' },
-    { label: t('kpi_revenue'),   value: Math.round(mockStats.monthlyRevenue / 1_000_000), growth: mockStats.revenueGrowth, icon: <TrendingUp className="w-5 h-5" />,   iconBg: 'bg-amber-500/10 text-amber-400',  suffix: ' mln' },
+    { label: t('kpi_revenue'),   value: mockStats.monthlyRevenue,                          growth: mockStats.revenueGrowth, icon: <TrendingUp className="w-5 h-5" />,   iconBg: 'bg-amber-500/10 text-amber-400',  suffix: ' AED' },
     { label: t('kpi_mechanics'), value: mockStats.activeMechanics,                      growth: 0,                      icon: <Wrench className="w-5 h-5" />,       iconBg: 'bg-green-500/10 text-green-400',  suffix: '' },
   ];
 
