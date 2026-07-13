@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Search, Phone, ClipboardList, CheckCircle2, TrendingUp } from 'lucide-react';
 import { mockOrders, mockCars, mockCustomers, mockMechanics } from '@/lib/mock/data';
-import { useAuthStore } from '@/lib/stores/authStore';
+import { useSession } from 'next-auth/react';
 import { cn } from '@/lib/utils/cn';
 import { trService, trSpecialty } from '@/lib/utils/translations';
 import { useLocale } from 'next-intl';
@@ -24,7 +24,8 @@ function withinDays(dateStr: string, days: number): boolean {
 export default function HistoryPage() {
   const t = useTranslations('dashboard');
   const locale = useLocale();
-  const { role } = useAuthStore();
+  const { data: session } = useSession();
+  const role = session?.user?.role;
   const isBoss = role === 'boss';
   const [search, setSearch] = useState('');
   const [period, setPeriod] = useState<Period>('1m');

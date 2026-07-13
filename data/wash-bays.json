@@ -1,0 +1,6 @@
+[
+  { "id": "bay-001", "bayNumber": 1, "status": "washing", "plate": "A 12345 B", "brand": "Toyota",  "startedAt": "2026-07-13T09:30:00Z", "bookedAt": null },
+  { "id": "bay-002", "bayNumber": 2, "status": "booked",  "plate": "C 11111 D", "brand": "Hyundai", "startedAt": null, "bookedAt": "2026-07-13T10:00:00Z" },
+  { "id": "bay-003", "bayNumber": 3, "status": "empty",   "plate": null,        "brand": null,      "startedAt": null, "bookedAt": null },
+  { "id": "bay-004", "bayNumber": 4, "status": "waiting", "plate": "E 33333 F", "brand": "Toyota",  "startedAt": null, "bookedAt": null }
+]

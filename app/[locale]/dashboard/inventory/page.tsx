@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Package, Plus, AlertTriangle, CheckCircle2, PackagePlus } from 'lucide-react';
 import { mockParts } from '@/lib/mock/data';
-import { useAuthStore } from '@/lib/stores/authStore';
+import { useSession } from 'next-auth/react';
 import { cn } from '@/lib/utils/cn';
 import { trPartName, trCategory } from '@/lib/utils/translations';
 import { useLocale } from 'next-intl';
@@ -13,7 +13,8 @@ import { useLocale } from 'next-intl';
 export default function InventoryPage() {
   const t = useTranslations('dashboard');
   const locale = useLocale();
-  const { role } = useAuthStore();
+  const { data: session } = useSession();
+  const role = session?.user?.role;
   const isBoss = role === 'boss';
 
   const [search, setSearch] = useState('');

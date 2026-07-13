@@ -15,14 +15,27 @@
     "cta_secondary": "Videoni ko'rish",
     "stat_customers": "Mijozlar",
     "stat_mechanics": "Ustalar",
-    "stat_satisfaction": "Mamnunlik"
+    "stat_satisfaction": "Mamnunlik",
+    "mockup_kpi_orders": "Buyurtmalar",
+    "mockup_kpi_customers": "Mijozlar",
+    "mockup_kpi_revenue": "Daromad",
+    "mockup_weekly": "Haftalik daromad",
+    "mockup_recent": "So'nggi buyurtmalar",
+    "mockup_live": "Jonli",
+    "mockup_work1": "Moy almashtirish",
+    "mockup_work2": "Tormoz kolodkasi",
+    "mockup_work3": "Yuvish",
+    "mockup_done": "Bajarildi",
+    "mockup_active": "Jarayonda",
+    "mockup_pending": "Kutmoqda",
+    "mockup_days": "Du,Se,Ch,Pa,Ju,Sh,Ya"
   },
   "timeline": {
     "title": "Avtomobil Tarixi",
     "subtitle": "Har bir mashina uchun to'liq xizmat tarixi — bitta joyda",
     "car": "Chevrolet Cobalt",
     "plate": "01 A 777 AA",
-    "owner": "Mijoz: Jasur Toshmatov",
+    "owner": "Mijoz: Ahmed Al-Mansouri",
     "event1_date": "12 Mart, 2025",
     "event1_title": "Motor moyi almashtirildi",
     "event1_desc": "Castrol 5W-30 · 4L · 45,000 so'm",
@@ -88,7 +101,11 @@
     "q4": "Bir nechta filialda ishlash mumkinmi?",
     "a4": "Enterprise tarifida bir nechta filial va ular o'rtasida ma'lumot almashish imkoniyati mavjud.",
     "q5": "O'rnatish qancha vaqt oladi?",
-    "a5": "O'rnatish kerak emas — brauzer orqali ishlaydi. Ro'yxatdan o'tishdan 5 daqiqa ichida boshlashingiz mumkin."
+    "a5": "O'rnatish kerak emas — brauzer orqali ishlaydi. Ro'yxatdan o'tishdan 5 daqiqa ichida boshlashingiz mumkin.",
+    "q6": "UAE va Saudiya Arabistoni uchun QQS hisobi qo'llab-quvvatlanadimi?",
+    "a6": "Ha — UAE uchun 5% va KSA uchun 15% QQS tizimga o'rnatilgan. Har bir hisob-fakturada soliq raqami va to'liq soliq tafsiloti mavjud.",
+    "q7": "Mijozlarga SMS o'rniga WhatsApp orqali xabar yuborish mumkinmi?",
+    "a7": "Ha, WhatsApp Business API integratsiyasi qo'llab-quvvatlanadi. Mijozlar buyurtma holati va eslatmalarni to'g'ridan-to'g'ri WhatsApp da oladi."
   },
   "footer": {
     "description": "Avtoservis biznesingizni raqamli tizimga o'tkazing. Tez, qulay va ishonchli.",
@@ -107,7 +124,27 @@
     "legal": "Huquqiy",
     "privacy": "Maxfiylik siyosati",
     "terms": "Foydalanish shartlari",
-    "copyright": "© 2025 Yantar Auto OS. Barcha huquqlar himoyalangan."
+    "copyright": "© 2026 Yantar Auto OS. Barcha huquqlar himoyalangan."
+  },
+  "contact": {
+    "title": "Bog'laning",
+    "subtitle": "Avtoservisingizni raqamlashtirmoqchimisiz? 15 daqiqada bepul demo sozlaymiz.",
+    "whatsapp": "WhatsApp da yozing",
+    "email": "Email yuborish",
+    "or": "yoki",
+    "badge": "14 kunlik bepul sinov · Karta shart emas"
+  },
+  "social": {
+    "heading": "Avtoservislar ishonadi",
+    "subheading": "UAE, Saudiya Arabistoni va Misrda",
+    "stat1_val": "500+",
+    "stat1_label": "Xizmat markazlari",
+    "stat2_val": "3",
+    "stat2_label": "Davlat",
+    "stat3_val": "14",
+    "stat3_label": "Kunlik bepul sinov",
+    "stat4_val": "24/7",
+    "stat4_label": "Qo'llab-quvvatlash"
   },
   "auth": {
     "title": "Tizimga Kirish",

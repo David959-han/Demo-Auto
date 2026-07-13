@@ -1,0 +1,8 @@
+[
+  { "id": "ord-001", "orderNumber": "WO-0001", "status": "done",      "description": "Oil change + filter",      "totalCost": 350, "customerId": "cust-001", "vehicleId": "veh-001", "mechanicId": "mech-001", "startDate": "2026-06-01T08:00:00Z", "endDate": "2026-06-01T11:00:00Z" },
+  { "id": "ord-002", "orderNumber": "WO-0002", "status": "done",      "description": "Brake pad replacement",    "totalCost": 280, "customerId": "cust-002", "vehicleId": "veh-002", "mechanicId": "mech-002", "startDate": "2026-06-05T09:00:00Z", "endDate": "2026-06-05T13:00:00Z" },
+  { "id": "ord-003", "orderNumber": "WO-0003", "status": "active",    "description": "AC service",              "totalCost": 420, "customerId": "cust-003", "vehicleId": "veh-003", "mechanicId": "mech-003", "startDate": "2026-07-13T08:00:00Z", "endDate": null },
+  { "id": "ord-004", "orderNumber": "WO-0004", "status": "pending",   "description": "Full inspection",         "totalCost": 650, "customerId": "cust-004", "vehicleId": "veh-004", "mechanicId": "mech-004", "startDate": "2026-07-13T10:00:00Z", "endDate": null },
+  { "id": "ord-005", "orderNumber": "WO-0005", "status": "done",      "description": "Transmission service",    "totalCost": 890, "customerId": "cust-005", "vehicleId": "veh-005", "mechanicId": "mech-005", "startDate": "2026-06-20T08:00:00Z", "endDate": "2026-06-20T17:00:00Z" },
+  { "id": "ord-006", "orderNumber": "WO-0006", "status": "active",    "description": "Electrical diagnostics",  "totalCost": 180, "customerId": "cust-006", "vehicleId": "veh-006", "mechanicId": "mech-006", "startDate": "2026-07-13T09:00:00Z", "endDate": null }
+]

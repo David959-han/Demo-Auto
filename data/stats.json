@@ -1,0 +1,16 @@
+{
+  "totalCustomers": 8,
+  "activeOrders": 2,
+  "doneToday": 1,
+  "pendingOrders": 1,
+  "totalRevenue": 48750,
+  "weeklyData": [
+    { "day": "Mon", "revenue": 1250 },
+    { "day": "Tue", "revenue": 2800 },
+    { "day": "Wed", "revenue": 1900 },
+    { "day": "Thu", "revenue": 3400 },
+    { "day": "Fri", "revenue": 4200 },
+    { "day": "Sat", "revenue": 5100 },
+    { "day": "Sun", "revenue": 2650 }
+  ]
+}

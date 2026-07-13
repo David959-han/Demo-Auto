@@ -283,6 +283,12 @@ body {
   background-size: 40px 40px;
 }
 
+/* ─── ARABIC FONT ───────────────────────────────────────────── */
+.font-arabic,
+.font-arabic * {
+  font-family: var(--font-cairo), system-ui, sans-serif;
+}
+
 /* ─── RTL SUPPORT ───────────────────────────────────────────── */
 [dir="rtl"] .rtl-flip {
   transform: scaleX(-1);

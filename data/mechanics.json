@@ -1,0 +1,8 @@
+[
+  { "id": "mech-001", "name": "Ahmed Al-Balushi", "specialty": "Engine & Transmission", "phone": "+97150111001", "kpi": 94, "completedOrders": 87,  "monthlyRevenue": 12400 },
+  { "id": "mech-002", "name": "Samir Al-Shamri",  "specialty": "Electrical Systems",   "phone": "+97150111002", "kpi": 88, "completedOrders": 72,  "monthlyRevenue": 9800  },
+  { "id": "mech-003", "name": "Rashid Al-Kaabi",  "specialty": "Suspension & Brakes",  "phone": "+97150111003", "kpi": 91, "completedOrders": 65,  "monthlyRevenue": 10200 },
+  { "id": "mech-004", "name": "Nasser Al-Mutairi","specialty": "AC & Cooling",         "phone": "+97150111004", "kpi": 85, "completedOrders": 58,  "monthlyRevenue": 8600  },
+  { "id": "mech-005", "name": "Fahad Al-Dosari",  "specialty": "Body & Paint",         "phone": "+97150111005", "kpi": 79, "completedOrders": 43,  "monthlyRevenue": 7200  },
+  { "id": "mech-006", "name": "Omar Al-Ajmi",     "specialty": "Diagnostics",          "phone": "+97150111006", "kpi": 96, "completedOrders": 102, "monthlyRevenue": 15800 }
+]

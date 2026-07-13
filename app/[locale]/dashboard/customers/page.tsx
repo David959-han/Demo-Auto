@@ -5,10 +5,13 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Search, Phone, Car, ChevronDown, ChevronUp, Plus } from 'lucide-react';
 import { mockCustomers, mockCars, mockOrders } from '@/lib/mock/data';
+import { trColor } from '@/lib/utils/translations';
+import { useLocale } from 'next-intl';
 import { cn } from '@/lib/utils/cn';
 
 export default function CustomersPage() {
   const t = useTranslations('dashboard');
+  const locale = useLocale();
   const [search, setSearch] = useState('');
   const [expanded, setExpanded] = useState<number | null>(null);
 
@@ -109,7 +112,7 @@ export default function CustomersPage() {
                           <span className="font-mono text-sm font-bold text-white">{car.plate}</span>
                           <span className="text-xs text-zinc-400">{car.brand} {car.model} {car.year}</span>
                         </div>
-                        <span className="text-xs text-zinc-600">{car.color}</span>
+                        <span className="text-xs text-zinc-600">{trColor(car.color, locale)}</span>
                       </div>
                     ))}
                   </div>

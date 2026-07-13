@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter, Orbitron } from 'next/font/google';
+import { Inter, Orbitron, Cairo } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { Providers } from '@/components/Providers';
 import '../globals.css';
 
 const inter = Inter({
@@ -16,6 +16,13 @@ const inter = Inter({
 const orbitron = Orbitron({
   subsets: ['latin'],
   variable: '--font-orbitron',
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800', '900'],
+});
+
+const cairo = Cairo({
+  subsets: ['arabic', 'latin'],
+  variable: '--font-cairo',
   display: 'swap',
   weight: ['400', '500', '600', '700', '800', '900'],
 });
@@ -55,13 +62,13 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRTL ? 'rtl' : 'ltr'}
-      className={`${inter.variable} ${orbitron.variable} dark`}
+      className={`${inter.variable} ${orbitron.variable} ${cairo.variable} dark`}
     >
-      <body className="min-h-screen antialiased overflow-x-hidden">
+      <body className={`min-h-screen antialiased overflow-x-hidden${isRTL ? ' font-arabic' : ''}`}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
+          <Providers>
             {children}
-          </ThemeProvider>
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

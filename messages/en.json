@@ -15,14 +15,27 @@
     "cta_secondary": "Watch Video",
     "stat_customers": "Customers",
     "stat_mechanics": "Mechanics",
-    "stat_satisfaction": "Satisfaction"
+    "stat_satisfaction": "Satisfaction",
+    "mockup_kpi_orders": "Orders",
+    "mockup_kpi_customers": "Customers",
+    "mockup_kpi_revenue": "Revenue",
+    "mockup_weekly": "Weekly revenue",
+    "mockup_recent": "Recent orders",
+    "mockup_live": "Live",
+    "mockup_work1": "Oil change",
+    "mockup_work2": "Brake pads",
+    "mockup_work3": "Car wash",
+    "mockup_done": "Done",
+    "mockup_active": "Active",
+    "mockup_pending": "Pending",
+    "mockup_days": "Mon,Tue,Wed,Thu,Fri,Sat,Sun"
   },
   "timeline": {
     "title": "Vehicle History",
     "subtitle": "Complete service history for every vehicle — in one place",
     "car": "Chevrolet Cobalt",
     "plate": "01 A 777 AA",
-    "owner": "Owner: Jasur Toshmatov",
+    "owner": "Owner: Ahmed Al-Mansouri",
     "event1_date": "March 12, 2025",
     "event1_title": "Engine oil replaced",
     "event1_desc": "Castrol 5W-30 · 4L · $4.50",
@@ -88,7 +101,11 @@
     "q4": "Can I use it across multiple branches?",
     "a4": "The Enterprise plan supports multiple branches and data sharing between them.",
     "q5": "How long does setup take?",
-    "a5": "No installation needed — it runs in the browser. You can start within 5 minutes of signing up."
+    "a5": "No installation needed — it runs in the browser. You can start within 5 minutes of signing up.",
+    "q6": "Do you support VAT invoicing for UAE and Saudi Arabia?",
+    "a6": "Yes — UAE 5% and KSA 15% VAT are built in. Each invoice includes your VAT registration number and a full tax breakdown.",
+    "q7": "Can customers receive notifications via WhatsApp instead of SMS?",
+    "a7": "Yes, WhatsApp Business API integration is supported. Customers receive order-ready and reminder messages directly in WhatsApp."
   },
   "footer": {
     "description": "Move your auto service business to a digital system. Fast, convenient, and reliable.",
@@ -107,7 +124,27 @@
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "copyright": "© 2025 Yantar Auto OS. All rights reserved."
+    "copyright": "© 2026 Yantar Auto OS. All rights reserved."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to digitize your auto service? We'll set up a free demo in 15 minutes.",
+    "whatsapp": "Chat on WhatsApp",
+    "email": "Send an Email",
+    "or": "or",
+    "badge": "Free 14-day trial · No credit card"
+  },
+  "social": {
+    "heading": "Trusted by Auto Services",
+    "subheading": "across UAE, Saudi Arabia and Egypt",
+    "stat1_val": "500+",
+    "stat1_label": "Service centers",
+    "stat2_val": "3",
+    "stat2_label": "Countries",
+    "stat3_val": "14",
+    "stat3_label": "Day free trial",
+    "stat4_val": "24/7",
+    "stat4_label": "Support"
   },
   "auth": {
     "title": "Sign In",

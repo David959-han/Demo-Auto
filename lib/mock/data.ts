@@ -13,35 +13,35 @@ export const mockStats: DashboardStats = {
 };
 
 export const mockCustomers: Customer[] = [
-  { id: 1, name: 'Jasur Toshmatov',  phone: '+998 90 123 45 67', joinedAt: '2024-01-15', cars: [1] },
-  { id: 2, name: 'Sardor Alimov',    phone: '+998 91 234 56 78', joinedAt: '2024-02-20', cars: [2, 3] },
-  { id: 3, name: 'Dilnoza Karimova', phone: '+998 93 345 67 89', joinedAt: '2024-03-05', cars: [4] },
-  { id: 4, name: 'Bobur Nazarov',    phone: '+998 94 456 78 90', joinedAt: '2024-04-10', cars: [5] },
-  { id: 5, name: 'Kamola Yusupova',  phone: '+998 99 567 89 01', joinedAt: '2024-05-18', cars: [6] },
-  { id: 6, name: 'Otabek Rашидов',  phone: '+998 97 678 90 12', joinedAt: '2024-06-22', cars: [7] },
-  { id: 7, name: 'Malika Sotvoldiyeva', phone: '+998 90 789 01 23', joinedAt: '2024-07-01', cars: [8] },
-  { id: 8, name: 'Zafar Mirzayev',   phone: '+998 91 890 12 34', joinedAt: '2024-08-14', cars: [9] },
+  { id: 1, name: 'Ahmed Al-Mansouri',  phone: '+971 50 123 4567', joinedAt: '2024-01-15', cars: [1] },
+  { id: 2, name: 'Mohammed Al-Rashid', phone: '+971 55 234 5678', joinedAt: '2024-02-20', cars: [2, 3] },
+  { id: 3, name: 'Fatima Al-Otaibi',   phone: '+966 50 345 6789', joinedAt: '2024-03-05', cars: [4] },
+  { id: 4, name: 'Khalid Al-Said',     phone: '+971 56 456 7890', joinedAt: '2024-04-10', cars: [5] },
+  { id: 5, name: 'Noura Al-Harbi',     phone: '+966 54 567 8901', joinedAt: '2024-05-18', cars: [6] },
+  { id: 6, name: 'Abdullah Al-Zahrani',phone: '+971 52 678 9012', joinedAt: '2024-06-22', cars: [7] },
+  { id: 7, name: 'Mona Al-Omari',      phone: '+966 55 789 0123', joinedAt: '2024-07-01', cars: [8] },
+  { id: 8, name: 'Saad Al-Qahtani',    phone: '+971 58 890 1234', joinedAt: '2024-08-14', cars: [9] },
 ];
 
 export const mockCars: Car[] = [
-  { id: 1, plate: '01 A 777 AA', brand: 'Chevrolet', model: 'Cobalt',  year: 2022, color: 'Oq',     customerId: 1, serviceHistory: [] },
-  { id: 2, plate: '10 B 234 CC', brand: 'Chevrolet', model: 'Nexia 3', year: 2021, color: 'Kumush', customerId: 2, serviceHistory: [] },
-  { id: 3, plate: '30 D 456 EE', brand: 'Chevrolet', model: 'Malibu',  year: 2023, color: 'Qora',   customerId: 2, serviceHistory: [] },
-  { id: 4, plate: '20 F 789 GG', brand: 'Chevrolet', model: 'Tracker', year: 2022, color: 'Ko\'k',  customerId: 3, serviceHistory: [] },
-  { id: 5, plate: '40 H 012 II', brand: 'Hyundai',   model: 'Accent',  year: 2020, color: 'Qizil',  customerId: 4, serviceHistory: [] },
-  { id: 6, plate: '70 J 345 KK', brand: 'Chevrolet', model: 'Spark',   year: 2019, color: 'Sariq',  customerId: 5, serviceHistory: [] },
-  { id: 7, plate: '01 L 678 MM', brand: 'Toyota',    model: 'Camry',   year: 2023, color: 'Oq',     customerId: 6, serviceHistory: [] },
-  { id: 8, plate: '50 N 901 OO', brand: 'Chevrolet', model: 'Lacetti', year: 2018, color: 'Kulrang', customerId: 7, serviceHistory: [] },
-  { id: 9, plate: '60 P 234 QQ', brand: 'Hyundai',   model: 'Elantra', year: 2021, color: 'Oq',     customerId: 8, serviceHistory: [] },
+  { id: 1, plate: 'A 12345 B', brand: 'Toyota',    model: 'Camry',   year: 2022, color: 'White',  customerId: 1, serviceHistory: [] },
+  { id: 2, plate: 'B 23456 C', brand: 'Nissan',    model: 'Altima',  year: 2021, color: 'Silver', customerId: 2, serviceHistory: [] },
+  { id: 3, plate: 'C 34567 D', brand: 'Toyota',    model: 'Prado',   year: 2023, color: 'Black',  customerId: 2, serviceHistory: [] },
+  { id: 4, plate: 'D 45678 E', brand: 'Hyundai',   model: 'Tucson',  year: 2022, color: 'Blue',   customerId: 3, serviceHistory: [] },
+  { id: 5, plate: 'E 56789 F', brand: 'Kia',       model: 'Sportage',year: 2020, color: 'White',  customerId: 4, serviceHistory: [] },
+  { id: 6, plate: 'F 67890 G', brand: 'Toyota',    model: 'Corolla', year: 2021, color: 'Gray',   customerId: 5, serviceHistory: [] },
+  { id: 7, plate: 'G 78901 H', brand: 'Toyota',    model: 'Land Cruiser', year: 2023, color: 'White', customerId: 6, serviceHistory: [] },
+  { id: 8, plate: 'H 89012 I', brand: 'Nissan',    model: 'Patrol',  year: 2019, color: 'Black',  customerId: 7, serviceHistory: [] },
+  { id: 9, plate: 'I 90123 J', brand: 'Hyundai',   model: 'Sonata',  year: 2021, color: 'Silver', customerId: 8, serviceHistory: [] },
 ];
 
 export const mockMechanics: Mechanic[] = [
-  { id: 1, name: 'Sardor Qodirov',   specialty: 'Dvigatel',    kpi: 94, completedOrders: 312, monthlyRevenue: 8_200_000 },
-  { id: 2, name: 'Javlon Ergashev',  specialty: 'Elektrik',    kpi: 87, completedOrders: 278, monthlyRevenue: 7_100_000 },
-  { id: 3, name: 'Bobur Xoliqov',    specialty: 'Tormoz',      kpi: 82, completedOrders: 241, monthlyRevenue: 6_500_000 },
-  { id: 4, name: 'Ulug\'bek Saidov', specialty: 'Moy/filtr',   kpi: 76, completedOrders: 198, monthlyRevenue: 5_900_000 },
-  { id: 5, name: 'Ravshan Normatov', specialty: 'Transmissiya', kpi: 71, completedOrders: 167, monthlyRevenue: 5_200_000 },
-  { id: 6, name: 'Doniyor Tillayev', specialty: 'Universal',   kpi: 68, completedOrders: 143, monthlyRevenue: 4_800_000 },
+  { id: 1, name: 'Ahmed Al-Balushi',  specialty: 'Dvigatel',    kpi: 94, completedOrders: 312, monthlyRevenue: 8_200_000 },
+  { id: 2, name: 'Samir Al-Shamri',   specialty: 'Elektrik',    kpi: 87, completedOrders: 278, monthlyRevenue: 7_100_000 },
+  { id: 3, name: 'Rashid Al-Kaabi',   specialty: 'Tormoz',      kpi: 82, completedOrders: 241, monthlyRevenue: 6_500_000 },
+  { id: 4, name: 'Nasser Al-Mutairi', specialty: 'Moy/filtr',   kpi: 76, completedOrders: 198, monthlyRevenue: 5_900_000 },
+  { id: 5, name: 'Fahad Al-Dosari',   specialty: 'Transmissiya', kpi: 71, completedOrders: 167, monthlyRevenue: 5_200_000 },
+  { id: 6, name: 'Omar Al-Ajmi',      specialty: 'Universal',   kpi: 68, completedOrders: 143, monthlyRevenue: 4_800_000 },
 ];
 
 export const mockOrders: WorkOrder[] = [

@@ -1,0 +1,10 @@
+[
+  { "id": "veh-001", "plate": "A 12345 B", "brand": "Toyota",  "model": "Land Cruiser", "year": 2022, "color": "White",  "mileage": 45200, "customerId": "cust-001" },
+  { "id": "veh-002", "plate": "B 67890 C", "brand": "Nissan",  "model": "Patrol",       "year": 2021, "color": "Silver", "mileage": 62100, "customerId": "cust-002" },
+  { "id": "veh-003", "plate": "C 11111 D", "brand": "Hyundai", "model": "Sonata",       "year": 2023, "color": "Black",  "mileage": 18500, "customerId": "cust-003" },
+  { "id": "veh-004", "plate": "D 22222 E", "brand": "Kia",     "model": "Sportage",     "year": 2020, "color": "Blue",   "mileage": 78300, "customerId": "cust-004" },
+  { "id": "veh-005", "plate": "E 33333 F", "brand": "Toyota",  "model": "Camry",        "year": 2022, "color": "Gray",   "mileage": 33700, "customerId": "cust-005" },
+  { "id": "veh-006", "plate": "F 44444 G", "brand": "Nissan",  "model": "Altima",       "year": 2019, "color": "White",  "mileage": 95400, "customerId": "cust-006" },
+  { "id": "veh-007", "plate": "G 55555 H", "brand": "Hyundai", "model": "Tucson",       "year": 2021, "color": "Silver", "mileage": 41200, "customerId": "cust-007" },
+  { "id": "veh-008", "plate": "H 66666 I", "brand": "Toyota",  "model": "Hilux",        "year": 2023, "color": "Black",  "mileage": 12800, "customerId": "cust-008" }
+]

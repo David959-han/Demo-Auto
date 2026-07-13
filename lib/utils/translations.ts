@@ -57,6 +57,16 @@ const categoryMap: Record<string, Record<Lang, string>> = {
   "Kuzov":   { uz: "Kuzov",   en: "Body",       ar: "هيكل" },
 };
 
+const colorMap: Record<string, Record<Lang, string>> = {
+  "White":  { uz: "Oq",     en: "White",  ar: "أبيض" },
+  "Silver": { uz: "Kumush", en: "Silver", ar: "فضي" },
+  "Black":  { uz: "Qora",   en: "Black",  ar: "أسود" },
+  "Blue":   { uz: "Ko'k",   en: "Blue",   ar: "أزرق" },
+  "Red":    { uz: "Qizil",  en: "Red",    ar: "أحمر" },
+  "Yellow": { uz: "Sariq",  en: "Yellow", ar: "أصفر" },
+  "Gray":   { uz: "Kulrang",en: "Gray",   ar: "رمادي" },
+};
+
 function tr(map: Record<string, Record<Lang, string>>, key: string, lang: Lang): string {
   return map[key]?.[lang] ?? key;
 }
@@ -65,3 +75,4 @@ export function trService(key: string, lang: string)   { return tr(serviceMap,  
 export function trSpecialty(key: string, lang: string) { return tr(specialtyMap, key, (lang as Lang) || 'uz'); }
 export function trPartName(key: string, lang: string)  { return tr(partNameMap,  key, (lang as Lang) || 'uz'); }
 export function trCategory(key: string, lang: string)  { return tr(categoryMap,  key, (lang as Lang) || 'uz'); }
+export function trColor(key: string, lang: string)     { return tr(colorMap,     key, (lang as Lang) || 'uz'); }

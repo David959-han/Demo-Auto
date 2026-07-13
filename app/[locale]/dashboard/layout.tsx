@@ -1,38 +1,31 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import { useAuthStore } from '@/lib/stores/authStore';
+import { useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { DashboardHeader } from '@/components/layout/DashboardHeader';
 import { SpotlightCursor } from '@/components/effects/SpotlightCursor';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
+  const { status } = useSession();
   const router = useRouter();
   const params = useParams();
   const locale = (params?.locale as string) ?? 'en';
 
-  useEffect(() => {
-    useAuthStore.persist.rehydrate();
-    setHydrated(true);
-  }, []);
-
-  const { isLoggedIn, role } = useAuthStore();
-
-  useEffect(() => {
-    if (hydrated && (!isLoggedIn || !role)) {
-      router.replace(`/${locale}/auth`);
-    }
-  }, [hydrated, isLoggedIn, role, router, locale]);
-
-  if (!hydrated || !isLoggedIn || !role) {
+  if (status === 'loading') {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="w-8 h-8 border-2 border-amber-500/30 border-t-amber-500 rounded-full animate-spin" />
       </div>
     );
+  }
+
+  if (status === 'unauthenticated') {
+    router.replace(`/${locale}/auth`);
+    return null;
   }
 
   return (

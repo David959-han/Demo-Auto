@@ -1,0 +1,29 @@
+[
+  {
+    "id": "user-boss-001",
+    "email": "boss@demo.yantar",
+    "password": "demo1234",
+    "name": "Ahmed Al-Mansouri",
+    "role": "boss",
+    "tenantId": "tenant-001",
+    "tenantSlug": "yantar-demo"
+  },
+  {
+    "id": "user-mech-001",
+    "email": "mechanic@demo.yantar",
+    "password": "demo1234",
+    "name": "Samir Al-Shamri",
+    "role": "mechanic",
+    "tenantId": "tenant-001",
+    "tenantSlug": "yantar-demo"
+  },
+  {
+    "id": "user-wash-001",
+    "email": "washer@demo.yantar",
+    "password": "demo1234",
+    "name": "Fahad Al-Dosari",
+    "role": "washer",
+    "tenantId": "tenant-001",
+    "tenantSlug": "yantar-demo"
+  }
+]

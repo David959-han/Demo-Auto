@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { Menu, Bell, LogOut, Zap } from 'lucide-react';
-import { useAuthStore } from '@/lib/stores/authStore';
+import { useSession, signOut } from 'next-auth/react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { cn } from '@/lib/utils/cn';
 import type { Role } from '@/types';
@@ -40,9 +40,12 @@ export function DashboardHeader({ onMenuOpen }: DashboardHeaderProps) {
   const pathname = usePathname();
   const router = useRouter();
   const currentLocale = useLocale();
-  const { role, name, logout } = useAuthStore();
+  const { data: session } = useSession();
   const locale = (params?.locale as string) ?? 'en';
   const [notifOpen, setNotifOpen] = useState(false);
+
+  const role = (session?.user?.role ?? 'boss') as Role;
+  const name = session?.user?.name ?? '';
 
   const stripped = pathname.replace(`/${locale}`, '');
   const pageKey = pageKeyMap[stripped];
@@ -54,16 +57,16 @@ export function DashboardHeader({ onMenuOpen }: DashboardHeaderProps) {
     router.push(segments.join('/'));
   };
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
     router.push(`/${locale}/auth`);
   };
 
-  const colors = role ? roleColors[role] : roleColors.boss;
+  const colors = roleColors[role] ?? roleColors.boss;
 
   const notifications = [
-    { id: 1, text: '01 A 777 AA — oil change due', time: '5 min ago', dot: 'bg-amber-400' },
-    { id: 2, text: 'Sardor — new order accepted', time: '12 min ago', dot: 'bg-blue-400' },
+    { id: 1, text: 'A 12345 B — oil change due', time: '5 min ago', dot: 'bg-amber-400' },
+    { id: 2, text: 'Ahmed — new order accepted', time: '12 min ago', dot: 'bg-blue-400' },
     { id: 3, text: 'Wash bay #3 is now available', time: '1 hour ago', dot: 'bg-green-400' },
   ];
 
@@ -151,8 +154,8 @@ export function DashboardHeader({ onMenuOpen }: DashboardHeaderProps) {
           </div>
           <div className="hidden sm:block">
             <div className="text-xs font-medium text-white leading-tight">{name}</div>
-            <div className={cn('text-[10px]', role ? roleColors[role].split(' ')[1] : 'text-zinc-500')}>
-              {role ? t(`role_${role}` as Parameters<typeof t>[0]) : ''}
+            <div className={cn('text-[10px]', colors.split(' ')[1])}>
+              {t(`role_${role}` as Parameters<typeof t>[0])}
             </div>
           </div>
           <button

@@ -2,14 +2,15 @@ import type { OrderStatus, WashStatus } from '@/types';
 
 // ── Names ─────────────────────────────────────────────────────────
 const firstNames = [
-  'Jasur','Sardor','Bobur','Kamol','Ulug\'bek','Ravshan','Doniyor','Sherzod',
-  'Nodir','Timur','Sanjar','Davron','Murod','Behruz','Otabek','Jahongir',
-  'Dilnoza','Kamola','Malika','Shahlo','Nilufar','Zulfiya','Maftuna','Nasiba',
+  'Ahmed','Mohammed','Khalid','Abdullah','Omar','Samir','Rashid','Nasser',
+  'Fahad','Saad','Ali','Hassan','Yusuf','Ibrahim','Tariq','Bilal',
+  'Fatima','Noura','Mona','Sara','Laila','Huda','Reem','Aisha',
 ];
 const lastNames = [
-  'Toshmatov','Alimov','Karimov','Nazarov','Yusupov','Rashidov','Mirzayev',
-  'Xoliqov','Ergashev','Qodirov','Saidov','Normatov','Tillayev','Abdullayev',
-  'Tursunov','Holmatov','Baxtiyorov','Sultonov','Mamatov','Xasanov',
+  'Al-Mansouri','Al-Rashid','Al-Otaibi','Al-Said','Al-Harbi','Al-Zahrani',
+  'Al-Omari','Al-Qahtani','Al-Balushi','Al-Shamri','Al-Kaabi','Al-Mutairi',
+  'Al-Dosari','Al-Ajmi','Al-Hamdan','Al-Suwaidi','Al-Kuwaiti','Al-Farsi',
+  'Al-Mazrouei','Al-Nuaimi',
 ];
 
 // ── Plates ────────────────────────────────────────────────────────
@@ -49,7 +50,7 @@ const services = [
 ];
 
 // ── Mechanics ─────────────────────────────────────────────────────
-const mechanicFirstNames = ['Sardor','Javlon','Bobur','Ulug\'bek','Ravshan','Doniyor'];
+const mechanicFirstNames = ['Ahmed','Samir','Rashid','Nasser','Fahad','Omar'];
 
 // ── Helpers ───────────────────────────────────────────────────────
 function pick<T>(arr: T[]): T { return arr[Math.floor(Math.random() * arr.length)]; }

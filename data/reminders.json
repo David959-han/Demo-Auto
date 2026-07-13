@@ -1,0 +1,6 @@
+[
+  { "id": "rem-001", "type": "oil",     "nextKm": 50000, "nextDate": "2026-07-16T08:00:00Z", "smsStatus": "scheduled", "vehicleId": "veh-001", "customerId": "cust-001", "vehicle": { "plate": "A 12345 B", "brand": "Toyota",  "model": "Land Cruiser" }, "customer": { "name": "Ahmed Al-Mansouri",  "phone": "+971501234567" } },
+  { "id": "rem-002", "type": "tire",    "nextKm": 80000, "nextDate": "2026-07-20T08:00:00Z", "smsStatus": "scheduled", "vehicleId": "veh-002", "customerId": "cust-002", "vehicle": { "plate": "B 67890 C", "brand": "Nissan",  "model": "Patrol"       }, "customer": { "name": "Mohammed Al-Rashid", "phone": "+971552345678" } },
+  { "id": "rem-003", "type": "brake",   "nextKm": 75000, "nextDate": "2026-08-01T08:00:00Z", "smsStatus": "scheduled", "vehicleId": "veh-003", "customerId": "cust-003", "vehicle": { "plate": "C 11111 D", "brand": "Hyundai", "model": "Sonata"        }, "customer": { "name": "Fatima Al-Otaibi",   "phone": "+966501234567" } },
+  { "id": "rem-004", "type": "service", "nextKm": 90000, "nextDate": "2026-08-15T08:00:00Z", "smsStatus": "scheduled", "vehicleId": "veh-004", "customerId": "cust-004", "vehicle": { "plate": "D 22222 E", "brand": "Kia",     "model": "Sportage"     }, "customer": { "name": "Khalid Al-Said",     "phone": "+966552345678" } }
+]

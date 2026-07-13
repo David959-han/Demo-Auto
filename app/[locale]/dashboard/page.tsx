@@ -8,7 +8,7 @@ import {
   XAxis, YAxis, Tooltip, CartesianGrid,
 } from 'recharts';
 import { AnimatedCounter } from '@/components/effects/AnimatedCounter';
-import { useAuthStore } from '@/lib/stores/authStore';
+import { useSession } from 'next-auth/react';
 import { mockStats, mockOrders, mockCustomers, mockCars, mockMechanics, mockRevenueChart } from '@/lib/mock/data';
 import { cn } from '@/lib/utils/cn';
 import { trService } from '@/lib/utils/translations';
@@ -22,7 +22,8 @@ function fmt(n: number) {
 export default function OverviewPage() {
   const t = useTranslations('dashboard');
   const locale = useLocale();
-  const { name } = useAuthStore();
+  const { data: session } = useSession();
+  const name = session?.user?.name ?? '';
 
   const statusConfig: Record<OrderStatus, { label: string; cls: string }> = {
     active:    { label: t('status_in_progress'), cls: 'bg-blue-500/20 text-blue-400' },

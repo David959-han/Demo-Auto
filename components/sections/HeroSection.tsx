@@ -143,9 +143,9 @@ export function HeroSection() {
                     {/* KPI row */}
                     <div className="grid grid-cols-3 gap-2">
                       {[
-                        { label: 'Buyurtmalar', value: '24', change: '+8%', color: 'text-amber-400' },
-                        { label: 'Mijozlar', value: '1,240', change: '+12%', color: 'text-green-400' },
-                        { label: 'Daromad', value: '4.2M', change: '+5%', color: 'text-blue-400' },
+                        { label: t('mockup_kpi_orders'),   value: '24',    change: '+8%',  color: 'text-amber-400' },
+                        { label: t('mockup_kpi_customers'),value: '1,240', change: '+12%', color: 'text-green-400' },
+                        { label: t('mockup_kpi_revenue'),  value: '4.2M',  change: '+5%',  color: 'text-blue-400' },
                       ].map((kpi) => (
                         <div key={kpi.label} className="rounded-xl bg-zinc-800/80 p-3 border border-zinc-700/50">
                           <div className={`text-lg font-black ${kpi.color}`}>{kpi.value}</div>
@@ -158,7 +158,7 @@ export function HeroSection() {
                     {/* Chart */}
                     <div className="rounded-xl bg-zinc-800/60 p-3 border border-zinc-700/50">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs text-zinc-400 font-medium">Haftalik daromad</span>
+                        <span className="text-xs text-zinc-400 font-medium">{t('mockup_weekly')}</span>
                         <span className="text-xs text-amber-400">↑ 18%</span>
                       </div>
                       <div className="flex items-end gap-1 h-16">
@@ -173,7 +173,7 @@ export function HeroSection() {
                         ))}
                       </div>
                       <div className="flex justify-between mt-1">
-                        {['Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh', 'Ya'].map((d) => (
+                        {t('mockup_days').split(',').map((d) => (
                           <span key={d} className="text-[9px] text-zinc-600">{d}</span>
                         ))}
                       </div>
@@ -181,11 +181,11 @@ export function HeroSection() {
 
                     {/* Recent orders */}
                     <div className="rounded-xl bg-zinc-800/60 p-3 border border-zinc-700/50 space-y-2">
-                      <span className="text-xs text-zinc-400 font-medium">So'nggi buyurtmalar</span>
+                      <span className="text-xs text-zinc-400 font-medium">{t('mockup_recent')}</span>
                       {[
-                        { plate: '01 A 777 AA', work: 'Moy almashtirish', status: 'Bajarildi', color: 'text-green-400' },
-                        { plate: '10 B 234 CC', work: 'Tormoz kolodkasi', status: 'Jarayonda', color: 'text-amber-400' },
-                        { plate: '30 K 891 BB', work: 'Yuvish', status: 'Kutmoqda', color: 'text-blue-400' },
+                        { plate: '01 A 777 AA', work: t('mockup_work1'), status: t('mockup_done'),    color: 'text-green-400' },
+                        { plate: '10 B 234 CC', work: t('mockup_work2'), status: t('mockup_active'),  color: 'text-amber-400' },
+                        { plate: '30 K 891 BB', work: t('mockup_work3'), status: t('mockup_pending'), color: 'text-blue-400' },
                       ].map((order) => (
                         <div key={order.plate} className="flex items-center justify-between py-1 border-b border-zinc-700/30 last:border-0">
                           <div>
@@ -206,7 +206,7 @@ export function HeroSection() {
                   className="absolute -top-3 -right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/20 border border-green-500/40 text-green-400 text-xs font-semibold shadow-lg"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  Jonli
+                  {t('mockup_live')}
                 </motion.div>
               </div>
             </ScrollReveal>

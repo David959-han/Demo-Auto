@@ -1,0 +1,12 @@
+[
+  { "id": "part-001", "name": "Engine Oil 5W-30 (4L)", "category": "Fluids",    "price": 85,  "quantity": 42, "minThreshold": 10, "supplier": "Al-Futtaim Auto" },
+  { "id": "part-002", "name": "Oil Filter",            "category": "Filters",   "price": 25,  "quantity": 38, "minThreshold": 10, "supplier": null },
+  { "id": "part-003", "name": "Air Filter",            "category": "Filters",   "price": 45,  "quantity": 22, "minThreshold": 8,  "supplier": null },
+  { "id": "part-004", "name": "Brake Pads (Front)",    "category": "Brakes",    "price": 180, "quantity": 16, "minThreshold": 5,  "supplier": null },
+  { "id": "part-005", "name": "Brake Pads (Rear)",     "category": "Brakes",    "price": 150, "quantity": 14, "minThreshold": 5,  "supplier": null },
+  { "id": "part-006", "name": "Spark Plugs Set (4)",   "category": "Ignition",  "price": 120, "quantity": 9,  "minThreshold": 5,  "supplier": null },
+  { "id": "part-007", "name": "AC Filter",             "category": "AC System", "price": 65,  "quantity": 3,  "minThreshold": 5,  "supplier": null },
+  { "id": "part-008", "name": "Coolant (1L)",          "category": "Fluids",    "price": 35,  "quantity": 2,  "minThreshold": 8,  "supplier": null },
+  { "id": "part-009", "name": "Wiper Blades",          "category": "Exterior",  "price": 55,  "quantity": 18, "minThreshold": 5,  "supplier": null },
+  { "id": "part-010", "name": "Battery 70Ah",          "category": "Electrical","price": 320, "quantity": 6,  "minThreshold": 3,  "supplier": null }
+]

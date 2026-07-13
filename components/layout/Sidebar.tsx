@@ -9,7 +9,7 @@ import {
   BarChart3, Bell, LogOut, ChevronRight, History, BookOpen,
 } from 'lucide-react';
 import { WrenchGearIcon, CarWashIcon, BarcodeIcon } from '@/components/icons';
-import { useAuthStore } from '@/lib/stores/authStore';
+import { useSession, signOut } from 'next-auth/react';
 import { cn } from '@/lib/utils/cn';
 import type { Role } from '@/types';
 
@@ -83,8 +83,6 @@ const roleColors: Record<Role, { badge: string; text: string }> = {
   washer: { badge: 'bg-cyan-500/20 text-cyan-400', text: 'text-cyan-400' },
 };
 
-// role labels come from translations
-
 interface SidebarProps {
   open: boolean;
   onClose: () => void;
@@ -98,11 +96,12 @@ export function Sidebar({ open, onClose }: SidebarProps) {
   const locale = (params?.locale as string) ?? 'en';
   const currentLocale = useLocale();
   const isRTL = currentLocale === 'ar';
-  const { role, name, logout } = useAuthStore();
+  const { data: session } = useSession();
 
-  const filtered = navItems.filter((item) =>
-    role ? item.roles.includes(role) : false
-  );
+  const role = (session?.user?.role ?? 'boss') as Role;
+  const name = session?.user?.name ?? '';
+
+  const filtered = navItems.filter((item) => item.roles.includes(role));
 
   const isActive = (href: string) => {
     const full = `/${locale}${href}`;
@@ -115,12 +114,12 @@ export function Sidebar({ open, onClose }: SidebarProps) {
     onClose();
   };
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
     router.push(`/${locale}/auth`);
   };
 
-  const colors = role ? roleColors[role] : roleColors.boss;
+  const colors = roleColors[role] ?? roleColors.boss;
 
   const sidebarContent = (
     <div className="flex flex-col h-full">

@@ -5,13 +5,19 @@ import { useRouter, useParams, usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Zap, ChevronRight, Info } from 'lucide-react';
-import { useAuthStore } from '@/lib/stores/authStore';
+import { signIn } from 'next-auth/react';
 import { SpotlightCursor } from '@/components/effects/SpotlightCursor';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { MagneticButton } from '@/components/effects/MagneticButton';
 import { WrenchGearIcon, CarWashIcon, SpeedometerIcon } from '@/components/icons';
 import type { Role } from '@/types';
 import { cn } from '@/lib/utils/cn';
+
+const DEMO_CREDENTIALS: Record<Role, { email: string; password: string; name: string }> = {
+  boss: { email: 'boss@demo.yantar', password: 'demo1234', name: 'Ahmed Al-Mansouri' },
+  mechanic: { email: 'mechanic@demo.yantar', password: 'demo1234', name: 'Samir Al-Shamri' },
+  washer: { email: 'washer@demo.yantar', password: 'demo1234', name: 'Fahad Al-Dosari' },
+};
 
 const roles: {
   key: Role;
@@ -20,7 +26,6 @@ const roles: {
   border: string;
   bg: string;
   glow: string;
-  demoName: string;
 }[] = [
   {
     key: 'boss',
@@ -29,7 +34,6 @@ const roles: {
     border: 'border-amber-500/40 hover:border-amber-500',
     bg: 'bg-amber-500/5 hover:bg-amber-500/10',
     glow: 'hover:shadow-amber-500/10',
-    demoName: 'Jahongir Rашидов',
   },
   {
     key: 'mechanic',
@@ -38,7 +42,6 @@ const roles: {
     border: 'border-blue-500/40 hover:border-blue-500',
     bg: 'bg-blue-500/5 hover:bg-blue-500/10',
     glow: 'hover:shadow-blue-500/10',
-    demoName: 'Sardor Qodirov',
   },
   {
     key: 'washer',
@@ -47,7 +50,6 @@ const roles: {
     border: 'border-cyan-500/40 hover:border-cyan-500',
     bg: 'bg-cyan-500/5 hover:bg-cyan-500/10',
     glow: 'hover:shadow-cyan-500/10',
-    demoName: 'Bobur Nazarov',
   },
 ];
 
@@ -61,9 +63,9 @@ export default function AuthPage() {
   const pathname = usePathname();
   const currentLocale = useLocale();
   const locale = (params?.locale as string) ?? 'en';
-  const login = useAuthStore((s) => s.login);
   const [selected, setSelected] = useState<Role | null>(null);
   const [loading, setLoading] = useState(false);
+  const [loginError, setLoginError] = useState('');
 
   const switchLocale = (next: string) => {
     const segments = pathname.split('/');
@@ -71,14 +73,22 @@ export default function AuthPage() {
     router.push(segments.join('/'));
   };
 
-  const handleEnter = () => {
+  const handleEnter = async () => {
     if (!selected) return;
     setLoading(true);
-    const roleData = roles.find((r) => r.key === selected)!;
-    login(selected, roleData.demoName);
-    setTimeout(() => {
-      router.push(`/${locale}/dashboard`);
-    }, 600);
+    setLoginError('');
+    const creds = DEMO_CREDENTIALS[selected];
+    const result = await signIn('credentials', {
+      email: creds.email,
+      password: creds.password,
+      redirect: false,
+    });
+    if (result?.error) {
+      setLoginError('Login failed. Please try seeding the database first.');
+      setLoading(false);
+      return;
+    }
+    router.push(`/${locale}/dashboard`);
   };
 
   return (
@@ -191,7 +201,7 @@ export default function AuthPage() {
                       {t(`role_${role.key}_desc` as Parameters<typeof t>[0])}
                     </div>
                     <div className="text-xs text-zinc-600 mt-1 font-mono">
-                      Demo: {role.demoName}
+                      Demo: {DEMO_CREDENTIALS[role.key].name}
                     </div>
                   </div>
 
@@ -253,6 +263,17 @@ export default function AuthPage() {
               </button>
             </MagneticButton>
           </motion.div>
+
+          {/* Login error */}
+          {loginError && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-xs text-red-400 text-center mt-3"
+            >
+              {loginError}
+            </motion.p>
+          )}
 
           {/* Demo notice */}
           <motion.div
